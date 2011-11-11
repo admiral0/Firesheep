@@ -32,6 +32,10 @@ public:
   LinuxPlatform(string);
   bool run_privileged();
   vector<InterfaceInfo> interfaces();
+  static void addInterface(InterfaceInfo info) { ifaces.push_back(info); };
+private:
+//   static int collect_info(int skfd, char *ifname, char *args[], int count);
+  static vector<InterfaceInfo> ifaces;
 };
 
 #endif

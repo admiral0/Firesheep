@@ -100,9 +100,25 @@ AC_SUBST(BOOST_STRING_ALGO_LIBS)
 # END BOOST LIBS
 
 if test x$FIRESHEEP_PLATFORM_NAME = xLINUX; then
-	PKG_CHECK_MODULES(HAL, [hal])
-	AC_SUBST(HAL_CFLAGS)
-	AC_SUBST(HAL_LIBS)
+	#Kill it with fire
+	#PKG_CHECK_MODULES(HAL, [hal])
+	#AC_SUBST(HAL_CFLAGS)
+	#AC_SUBST(HAL_LIBS)
+
+	#Use iwlib instead of hal
+	AC_ARG_WITH([iwlib-include-path],
+	  [AS_HELP_STRING([--with-iwlib-include-path],
+	  [location of the iwlib headers, defaults to /usr/include])],
+	  [IWLIB_CFLAGS="-I$withval"],
+	  [IWLIB_CFLAGS='-I/usr/include'])
+	AC_SUBST([IWLIB_CFLAGS])
+
+	AC_ARG_WITH([iwlib-library-path],
+	  [AS_HELP_STRING([--with-iwlib-library-path],
+	  [location of the iwlib library])],
+	  [IWLIB_LIBS="-L$withval -liw"],
+	  [IWLIB_LIBS='-liw'])
+	AC_SUBST([IWLIB_LIBS])
 fi
 
 CXXFLAGS="-Wall -g -O0"
