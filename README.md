@@ -11,6 +11,7 @@ Contributors:
   * Ian Gallagher <crash@neg9.org>
   * Michajlo Matijkiw <michajlo.matijkiw@gmail.com>
   * Nick Kossifidis <mickflemm@gmail.com>
+  * Radu Andries <admiral0@tuxfamily.org>
 
 ## Building
 
